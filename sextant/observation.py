@@ -15,6 +15,8 @@ MAX_METRIC_MAGNITUDE = 1e100
 MAX_SEQUENCE = 2**63 - 1
 MAX_FRESH_AGE_NS = 30_000_000_000
 MAX_FUTURE_SKEW_NS = 5_000_000_000
+# Two-sided 95% normal quantile, used for the Wilson accuracy interval.
+WILSON_Z_95 = 1.959963984540054
 _HEX = frozenset("0123456789abcdef")
 
 
@@ -188,7 +190,7 @@ def _reject_constant(value):
     raise ValueError(f"invalid_json_constant:{value}")
 
 
-def load_sextant_observation(path):
+def load_sextant_observation(path: str | Path) -> SextantObservation:
     """Load a bounded local JSON document; file protection is not authentication."""
     data = Path(path).read_bytes()
     if len(data) > MAX_DOCUMENT_BYTES:
@@ -251,20 +253,22 @@ def _accuracy(events):
     if not count:
         return AccuracyAssessment(0, 0, None, None, None)
     estimate = correct / count
-    z = 1.959963984540054
+    z = WILSON_Z_95
     denominator = 1 + z * z / count
     center = (estimate + z * z / (2 * count)) / denominator
     margin = z * math.sqrt(estimate * (1 - estimate) / count + z * z / (4 * count * count)) / denominator
     return AccuracyAssessment(count, correct, estimate, max(0.0, center - margin), min(1.0, center + margin))
 
 
-def replay(observation):
+def replay(observation: SextantObservation) -> SextantReplay:
     """Summarize one validated batch; results are reported signals, never proof."""
     if type(observation) is not SextantObservation:
         raise TypeError("SextantObservation required")
     calibration = observation.calibration
     events = observation.events
-    cohort = next(iter(events), None)
+    # Validation guarantees at least one event (event_count is 1..MAX_EVENTS
+    # and len(events) == event_count), so the first event always exists.
+    cohort = events[0]
     if len(events) < 2:
         drift = DriftAssessment(
             "Unknown", len(events), calibration.baseline_sample_count,
@@ -314,7 +318,7 @@ def replay(observation):
     )
 
 
-def freshness(observation, now_ns=None):
+def freshness(observation: SextantObservation, now_ns: int | None = None) -> str:
     """Classify producer-supplied snapshot time; it does not authenticate it."""
     if type(observation) is not SextantObservation:
         raise TypeError("SextantObservation required")

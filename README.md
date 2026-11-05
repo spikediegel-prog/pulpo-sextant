@@ -8,8 +8,14 @@ connection to canonical application state.
 
 ## Install and use
 
-The package has no third-party runtime dependencies. From a checkout, import
-the public API with Python:
+The package has no third-party runtime dependencies. From a checkout, install
+it with pip (Python 3.11 or later):
+
+```console
+pip install .
+```
+
+Then import the public API with Python:
 
 ```python
 from sextant import load_sextant_observation, replay
@@ -17,6 +23,14 @@ from sextant import load_sextant_observation, replay
 observation = load_sextant_observation("observation.json")
 report = replay(observation)
 print(report.drift.status, report.accuracy.accuracy)
+```
+
+A worked example lives in `examples/observation.json`. Replay it with the
+tiny demo, which prints accuracy and drift lines in the format from
+[docs/SEXTANT.md](docs/SEXTANT.md):
+
+```console
+python3 examples/demo.py
 ```
 
 Run the test suite with:
@@ -41,6 +55,7 @@ substitution remains undetectable without an independently trusted
 authenticator.
 
 The existing Pulpo Control Center Tk page is host-specific and is not included
-here. A host may adapt the pure replay results for display, but must keep the
+here. Pulpo-Preview owns the Tk page; this package supplies replay results
+only. A host may adapt the pure replay results for display, but must keep the
 observation provider, UI, and canonical-state authority separate. An
 investigation signal is not proof of cause or correctness.

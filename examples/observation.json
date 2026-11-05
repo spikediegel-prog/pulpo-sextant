@@ -1,0 +1,143 @@
+{
+  "calibration": {
+    "baseline_mean": 100.0,
+    "baseline_model_version": "model-1",
+    "baseline_sample_count": 100,
+    "baseline_stddev": 8.0,
+    "baseline_workload_version": "workload-1",
+    "calibration_id": "example-calibration",
+    "checkpoint_ref": "example-checkpoint",
+    "evidence_ref": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "investigate_z_threshold": 2.0,
+    "metric_id": "latency-ms",
+    "version": "1",
+    "workload_id": "example-workload"
+  },
+  "event_count": 10,
+  "events": [
+    {
+      "checkpoint_ref": "example-checkpoint",
+      "evidence_ref": "0000000000000000000000000000000000000000000000000000000000000001",
+      "metric_id": "latency-ms",
+      "metric_value": 95,
+      "model_version": "model-2",
+      "reviewed_correct": true,
+      "sequence": 1,
+      "timestamp_ns": 1793867991000000000,
+      "workload_id": "example-workload",
+      "workload_version": "workload-2"
+    },
+    {
+      "checkpoint_ref": "example-checkpoint",
+      "evidence_ref": "0000000000000000000000000000000000000000000000000000000000000002",
+      "metric_id": "latency-ms",
+      "metric_value": 100,
+      "model_version": "model-2",
+      "reviewed_correct": true,
+      "sequence": 2,
+      "timestamp_ns": 1793867992000000000,
+      "workload_id": "example-workload",
+      "workload_version": "workload-2"
+    },
+    {
+      "checkpoint_ref": "example-checkpoint",
+      "evidence_ref": "0000000000000000000000000000000000000000000000000000000000000003",
+      "metric_id": "latency-ms",
+      "metric_value": 105,
+      "model_version": "model-2",
+      "reviewed_correct": true,
+      "sequence": 3,
+      "timestamp_ns": 1793867993000000000,
+      "workload_id": "example-workload",
+      "workload_version": "workload-2"
+    },
+    {
+      "checkpoint_ref": "example-checkpoint",
+      "evidence_ref": "0000000000000000000000000000000000000000000000000000000000000004",
+      "metric_id": "latency-ms",
+      "metric_value": 110,
+      "model_version": "model-2",
+      "reviewed_correct": true,
+      "sequence": 4,
+      "timestamp_ns": 1793867994000000000,
+      "workload_id": "example-workload",
+      "workload_version": "workload-2"
+    },
+    {
+      "checkpoint_ref": "example-checkpoint",
+      "evidence_ref": "0000000000000000000000000000000000000000000000000000000000000005",
+      "metric_id": "latency-ms",
+      "metric_value": 115,
+      "model_version": "model-2",
+      "reviewed_correct": true,
+      "sequence": 5,
+      "timestamp_ns": 1793867995000000000,
+      "workload_id": "example-workload",
+      "workload_version": "workload-2"
+    },
+    {
+      "checkpoint_ref": "example-checkpoint",
+      "evidence_ref": "0000000000000000000000000000000000000000000000000000000000000006",
+      "metric_id": "latency-ms",
+      "metric_value": 120,
+      "model_version": "model-2",
+      "reviewed_correct": true,
+      "sequence": 6,
+      "timestamp_ns": 1793867996000000000,
+      "workload_id": "example-workload",
+      "workload_version": "workload-2"
+    },
+    {
+      "checkpoint_ref": "example-checkpoint",
+      "evidence_ref": "0000000000000000000000000000000000000000000000000000000000000007",
+      "metric_id": "latency-ms",
+      "metric_value": 125,
+      "model_version": "model-2",
+      "reviewed_correct": false,
+      "sequence": 7,
+      "timestamp_ns": 1793867997000000000,
+      "workload_id": "example-workload",
+      "workload_version": "workload-2"
+    },
+    {
+      "checkpoint_ref": "example-checkpoint",
+      "evidence_ref": "0000000000000000000000000000000000000000000000000000000000000008",
+      "metric_id": "latency-ms",
+      "metric_value": 130,
+      "model_version": "model-2",
+      "reviewed_correct": false,
+      "sequence": 8,
+      "timestamp_ns": 1793867998000000000,
+      "workload_id": "example-workload",
+      "workload_version": "workload-2"
+    },
+    {
+      "checkpoint_ref": "example-checkpoint",
+      "evidence_ref": "0000000000000000000000000000000000000000000000000000000000000009",
+      "metric_id": "latency-ms",
+      "metric_value": 140,
+      "model_version": "model-2",
+      "reviewed_correct": null,
+      "sequence": 9,
+      "timestamp_ns": 1793867999000000000,
+      "workload_id": "example-workload",
+      "workload_version": "workload-2"
+    },
+    {
+      "checkpoint_ref": "example-checkpoint",
+      "evidence_ref": "000000000000000000000000000000000000000000000000000000000000000a",
+      "metric_id": "latency-ms",
+      "metric_value": 174,
+      "model_version": "model-2",
+      "reviewed_correct": null,
+      "sequence": 10,
+      "timestamp_ns": 1793868000000000000,
+      "workload_id": "example-workload",
+      "workload_version": "workload-2"
+    }
+  ],
+  "first_sequence": 1,
+  "observed_at_ns": 1793868000000000000,
+  "schema": "pulpo.sextant-observation.v1",
+  "source_id": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+}
