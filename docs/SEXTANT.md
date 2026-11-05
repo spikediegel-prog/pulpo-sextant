@@ -62,3 +62,20 @@ Pulpo-Preview depends on its Control Center theme and host page interface and
 is intentionally outside this standalone package. A host adapter may render
 replay values but must not convert an investigation signal into a claim of
 cause, correctness, cryptographic verification, or source authenticity.
+
+### Pulpo-Preview metric details
+
+The metric-detail presentation belongs to Pulpo-Preview, not this package.
+The host may summarize replay values with copy such as:
+
+```text
+6/8 generated labels correct · Wilson 95% CI: 41%–93%
+Mean: 121.4 ms · Baseline: 100.0 ms · z-score: 2.96 (threshold: 2.0) · n=10
+```
+
+These are illustrative values. The accuracy interval communicates sampling
+uncertainty under the assumptions above; it is not a guarantee of population
+accuracy. The drift z-score and threshold are an investigate-only signal, not
+a significance test or p-value, and do not trigger or recommend an action.
+Pulpo-Preview owns the UI wording and rendering; Sextant supplies replay
+results only.
