@@ -1,10 +1,10 @@
 # Sextant
 
-Sextant is a standalone, standard-library Python package for validating and
-replaying bounded workload-observation documents. It reports accuracy and
-calibrated drift as **recorded signals only**. It does not establish source
-authenticity, correctness, causality, or event completeness, and it has no
-connection to canonical application state.
+Sextant watches how hard your system is working and tells you if its readings are drifting.
+
+It only watches — it never decides or changes anything. It reports what it saw, so you can check it yourself. It can't tell you whether the readings were true in the first place, or what caused them — only whether they match and whether they've drifted.
+
+Sextant is a small Python package for checking workload-observation records. It reports accuracy and drift as recorded signals only.
 
 ## Install and use
 
